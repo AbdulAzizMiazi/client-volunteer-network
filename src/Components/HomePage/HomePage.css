@@ -1,0 +1,46 @@
+.searchOption{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.searchOption > h1 {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.searchBtn{
+    background-color: #007bffe7;
+    color: white;
+    margin-left: -10px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+.myCardDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+.myCardStyle{
+    width: 250px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all ease-in-out 400ms;
+}
+.myCardStyle:hover{
+    width: 260px;
+}
+.cardTitle{
+    text-align: center;
+    color: white;
+}
+.navStyle{
+    color: rgba(0,0,0,.5);
+    font-weight: bolder;
+    cursor: pointer;
+    text-decoration: none;
+}
+.navStyle:hover{
+    text-decoration: none;
+    color: #000;
+}
