@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import '../LoginPage/LoginPage.css';
-import cardData from '../HomePage/cardData';
 import logo from '../../resources/logos/Group 1329.png';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -10,12 +9,20 @@ import { UserContext } from '../../App';
 const RegistrationPage = () => {
     const {title} = useParams();
     const [userState, setUserState] = useContext(UserContext);
+    let [allEvents, setAllEvents] = useState([]);
     const [localSate, setLocalSate] = useState({
         warningText: "",
         showWarning: false,
     });
+    
     const today = new Date();
     const history = useHistory();
+
+    useEffect(()=>{
+        fetch("https://still-cliffs-89513.herokuapp.com/allEvents")
+        .then(res => res.json())
+        .then(data => setAllEvents(allEvents = data))
+    },[])
 
     if (userState.eventTitle === undefined) {
         const updateUserInfo = {...userState};
@@ -95,7 +102,7 @@ const RegistrationPage = () => {
                         <Form.Control as="select" name="eventTitle" onChange={updateContext} className="my-3">
                             <option>{title}</option>
                             {
-                                cardData.map( eachData => eachData.title !== title &&
+                                allEvents.map( eachData => eachData.title !== title &&
                                 <option key={eachData.id}> {eachData.title} </option> )
                             }
                         </Form.Control>   

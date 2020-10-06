@@ -1,14 +1,14 @@
 import React from 'react';
+import cardData from '../HomePage/cardData';
 import { Col, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import cardData from '../HomePage/cardData';
 
 const EventCards = ({eventInfo, checkDelete}) => {
     const {_id, eventTitle, date} = eventInfo;
     const [deleteEvent, setDataEvent] = checkDelete;
-    const cardImage = cardData.find(eachData => eachData.title === eventTitle)
-    const image = cardImage.image;
+
+    const img =  cardData.find(eachData => eachData.title === eventTitle && eachData.image);
     
     const cancelEvent = (id) => {
         fetch(`https://still-cliffs-89513.herokuapp.com/cancel/${id}`,{
@@ -29,7 +29,7 @@ const EventCards = ({eventInfo, checkDelete}) => {
             <Card style={{marginBottom: "30px", padding: "10px"}} className="shadow">
                 <Row>
                     <Col sm={6} lg={4}>
-                        <Card.Img variant="top" src={image} style={{width: "90%"}}/>
+                        <Card.Img variant="top" src={img.image} style={{width: "90%"}}/>
                     </Col>
                     <Col sm={6} lg={5}>
                         <h3>{eventTitle}</h3>

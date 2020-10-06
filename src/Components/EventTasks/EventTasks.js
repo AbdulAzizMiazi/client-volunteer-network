@@ -31,14 +31,14 @@ const EventTasks = () => {
         <div>
             <Container>
             <Navbar className="bg-transparent mb-5 align-self-center" expand="lg">
-                <Navbar.Brand href="#">
+                <Link to="/">
                     <img
                         alt=""
                         src={logo}
                         width="220px"
                         className="d-inline-block align-top"
                     /> 
-                </Navbar.Brand>
+                </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">

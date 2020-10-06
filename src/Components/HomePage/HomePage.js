@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './HomePage.css';
-import cardData from './cardData';
-import logo from '../../resources/logos/Group 1329.png'
+import logo from '../../resources/logos/Group 1329.png';
 import  Container  from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -14,6 +13,13 @@ import { UserContext } from '../../App';
 
 const HomePage = () => {
     const [userState, setUserState] = useContext(UserContext);
+    const [cardData, setCardData] = useState([]);
+
+    useEffect(()=>{
+        fetch("https://still-cliffs-89513.herokuapp.com/allEvents")
+        .then(res => res.json())
+        .then(data => setCardData(data))
+    },[]);
 
     const cardClicked = (vTitle) => {
         const updateContext = {...userState};
@@ -66,7 +72,7 @@ const HomePage = () => {
                     {
                     cardData.map( cardInfo => {
                         return<Link to={`register/${cardInfo.title}`} onClick={()=>cardClicked(cardInfo.title)} style={{textDecoration: "none"}}>
-                            <MyCard key={cardInfo.id} info={cardInfo}/>
+                            <MyCard key={cardInfo._id} info={cardInfo}/>
                         </Link>
                     })
                     }

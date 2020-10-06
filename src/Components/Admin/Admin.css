@@ -1,0 +1,21 @@
+.adminDiv{
+    font-weight: 600;
+}
+.adminOption{
+    cursor: pointer;
+}
+.adminOption:hover{
+    color: rgb(47, 44, 190) !important;
+}
+.myTable{
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 15px;
+}
+.deleteOpt img{
+    background-color: rgba(255, 0, 0, 0.75);
+    border-radius: 8px;
+    padding: 5px;
+    width: 30px;
+    cursor: pointer;
+}
