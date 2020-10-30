@@ -22,7 +22,7 @@ const Admin = () => {
                         className="d-inline-block align-top mt-3 mb-5"
                     />
                     </Link>
-                    <p onClick={()=>setShowList(showList = true)}>
+                    {/* <p onClick={()=>setShowList(showList = true)}>
                         {
                             showList
                             ?<span 
@@ -43,7 +43,7 @@ const Admin = () => {
                                     Add Event
                             </span>
                         }
-                    </p>
+                    </p> */}
 
                 </Col>
                 <Col sm={12} md={10} className="mt-4">
